@@ -7,7 +7,6 @@ import './Pet.css';
 
 const Pet = (props) =>
 {
-    console.log("props" + props);
     return(
         <div className="Pet">
         <Link to={{

@@ -39,7 +39,7 @@ const PetFinder = {
             }).then(function (data) {
         
                 // Log the pet data
-                console.log('pets', data);
+                // console.log('pets', data);
                 result= data;
                 return data;
         
@@ -61,7 +61,7 @@ const PetFinder = {
         })
         .then((jsonResponse) => 
         {
-            console.log("jsonResponse" + jsonResponse);
+            // console.log("jsonResponse" + jsonResponse);
             if (jsonResponse.animals) {
                 return jsonResponse.animals.map((animal) => {
                   return {

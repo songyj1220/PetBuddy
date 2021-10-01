@@ -23,14 +23,12 @@ const App = () => {
   {
     PetFinder.searchPet(petType, location).then((animals) =>
     {
-      console.log("final" + animals);
       setPets(animals);
     });
   }
 
   const handleChange = (event) =>
   {
-    console.log(location);
     setLocation(event.target.value);
   }
 
