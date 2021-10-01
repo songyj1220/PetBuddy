@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,34 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchBar {
+  height: 5rem;
+}
+
+.searchBar button {
+  height: 100%;
+  width: 8rem;
+  color: antiquewhite;
+  font-size: large;
+  font-weight: bolder;
+  background-color: blueviolet;
+  border-color: white;
+}
+
+.searchBar button:hover {
+  background-color: rgb(65, 18, 109);
 }

@@ -1,0 +1,22 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container img {
+  margin-top: 3rem;
+  height: 25rem;
+  border-radius: 2%;
+}
+
+.description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 10rem;
+}
+
+.description-container .card {
+  width: 40rem;
+}

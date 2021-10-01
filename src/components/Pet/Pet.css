@@ -1,0 +1,17 @@
+.petCard {
+  text-align: center;
+  width: 16rem;
+  height: 25rem;
+  margin-bottom: 5rem;
+  color: black;
+}
+
+.Pet a {
+  text-decoration: none;
+}
+/* width: '16rem', height: '25rem', marginBottom:'5rem' */
+
+.petCard:hover {
+  border-width: 2px;
+  border-color: violet;
+}
