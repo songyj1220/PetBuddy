@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import DefaultImage from '../images/paw.jpg';
+import LoadingImage from '../images/loadingImage.svg';
 import './Pet.css';
 
 const Pet = (props) =>
@@ -21,13 +22,14 @@ const Pet = (props) =>
 
                    :
 
-                   <Card.Img variant="top" src={DefaultImage} alt="petNoImage"/>
+                   <Card.Img variant="top" src={LoadingImage} alt="petNoImage" style={{ height: '254px'}}/>
 
                }
                </div>
                <Card.Body>
-                   <Card.Title>{props.pet.name}</Card.Title>
-                   <Card.Text>
+                   <Card.Title className="titleText">{props.pet.name}</Card.Title>
+                   <Card.Text className="descText">
+                       {props.pet.age}&nbsp;•&nbsp; 
                        {props.pet.breeds.primary}
                    </Card.Text>
                </Card.Body>

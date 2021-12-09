@@ -4,7 +4,7 @@ const petFinderSecret = "UQh71IxHiFMVfqG9e6clxn2yEaZI8lwquLPbLSYD";
 
 
 const PetFinder = {
-    searchPet(type, location) {
+    searchPet(type, location, currentPage) {
         var token, tokenType, expires, result, locationQuery;
 
         var getOAuth = function() {
@@ -26,7 +26,7 @@ const PetFinder = {
 
         var getPets = function () {
             locationQuery = (location !== "") ? `&location=${location}` : "";
-            return fetch(`https://api.petfinder.com/v2/animals?type=${type}${locationQuery}`, {
+            return fetch(`https://api.petfinder.com/v2/animals?type=${type}${locationQuery}&page=2`, {
                 headers: {
                     'Authorization': tokenType + ' ' + token,
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -39,7 +39,7 @@ const PetFinder = {
             }).then(function (data) {
         
                 // Log the pet data
-                // console.log('pets', data);
+                console.log('pets', data);
                 result= data;
                 return data;
         
@@ -74,6 +74,7 @@ const PetFinder = {
                     size: animal.size,
                     photos: animal.photos,
                     description: animal.description,
+                    totalPage: jsonResponse.pagination.total_pages
                   };
                 });
             }

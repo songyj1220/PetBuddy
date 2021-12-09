@@ -8,22 +8,39 @@ import {
 import './App.css';
 import PetFinder from "../../util/PetFinder.js";
 import PetList from "../PetList/PetList";
+import Navigation from "../Navigation/Navigation";
 import Description from '../Description/Description';
-import banner from "../images/banner.jpg";
-import {Nav, Image, Button, InputGroup, FormControl} from 'react-bootstrap';
+import banner from "../images/banner_gray.jpg";
+import {Nav, Image, ButtonGroup, Button, InputGroup, FormControl, Row, Col} from 'react-bootstrap';
 
 const App = () => {
   const [type, setType] = useState("");
   const [location, setLocation] = useState("");
   const [pets, setPets] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   
  
 
-  const getPetList = (petType, location) => 
+  const getPetList = (petType, location, currentPage) => 
   {
-    PetFinder.searchPet(petType, location).then((animals) =>
+    PetFinder.searchPet(petType, location, currentPage).then((animals) =>
     {
       setPets(animals);
+      if(animals !== null && animals !== undefined)
+      {
+        console.log("animals", animals);
+        if(animals[0].totalPage < 5)
+        {
+          setTotalPage(animals[0].totalPage);
+        }
+        else
+        {
+          setTotalPage(5);
+        }
+
+      }
+
     });
   }
 
@@ -40,53 +57,45 @@ const App = () => {
     return (
       <Router>
       <div className='main'>
-        {/* <div className="navigation">
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="/home">Active</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </div> */}
-        <div className="banner-container">
-          <Image className="banner" src={banner} alt="banner" fluid/>
-        </div>
+        <Navigation/>
+
+
         <div className="search-container">
-          <InputGroup className="searchBar">
-            <FormControl
-              placeholder="Enter Zipcode (ex: 57018)"
-              aria-label="Recipient's username with two button addons"
-              onChange={handleChange}
-            />
-            <Link to="/petList">
-            <Button variant="outline-secondary" onClick={() => {setType("dog"); search("dog");}}> Dogs </Button>
-            <Button variant="outline-secondary" onClick={() => {setType("cat"); search("cat");}}>Cats</Button>
-            <Button variant="outline-secondary" onClick={() => {setType("rabbit"); search("rabbit");}}>Rabbits</Button>
-            {/* <Button variant="outline-secondary">Other</Button> */}
-            </Link>
-          </InputGroup>
-        </div>
+            <Row className="searchBar">
+              <Col>
+              <FormControl
+                placeholder="Enter Zipcode (ex: 57018)"
+                aria-label="Recipient's username with two button addons"
+                onChange={handleChange}
+              />
+              </Col>
+              <Col>
+              <Link to="/petList">
+                {/* <ButtonGroup></ButtonGroup> */}
+              <Button variant="outline-secondary" onClick={() => {setType("dog"); search("dog");}}> Dogs </Button>
+              <Button variant="outline-secondary" onClick={() => {setType("cat"); search("cat");}}>Cats</Button>
+              <Button variant="outline-secondary" onClick={() => {setType("rabbit"); search("rabbit");}}>Rabbits</Button>
+              {/* <Button variant="outline-secondary">Other</Button> */}
+              </Link>
+              </Col>
+            </Row>
+          </div>
 
         {/* <div className = "petId">
           <PetList pets={pets} />    
         </div> */}
 
-        <Switch>
-          <Route exact path="/">
-          </Route>
-          <Route path="/petList">
-          <PetList pets={pets} />    
-          </Route>
-          <Route path="/description" component={Description}>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route exact path="/">
+            </Route>
+            <Route path="/petList">
+            <PetList pets={pets} totalPage={totalPage}/>    
+            </Route>
+            <Route path="/description" component={Description}>
+            </Route>
+          </Switch>
 
-      </div>
+        </div>
       </Router>
     );
 };

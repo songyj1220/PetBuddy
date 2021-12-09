@@ -1,12 +1,19 @@
+.Description {
+  position: absolute;
+  left: 50%;
+  top: 200%;
+  transform: translate(-50%, -50%);
+}
+
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .image-container img {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   height: 25rem;
-  border-radius: 2%;
+  border-radius: 10px;
 }
 
 .description-container {
@@ -14,9 +21,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 }
 
 .description-container .card {
-  width: 40rem;
+  width: 30rem;
 }

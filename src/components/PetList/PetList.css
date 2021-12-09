@@ -3,4 +3,40 @@
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 4.4rem 10%;
+  position: absolute;
+  top: 100%;
+}
+
+/* pagination.css */
+.pagination {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination div {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+/* Style the active/current link */
+.pagination div.active {
+  background-color: #05aff1;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination div:not(.active) {
+  background-color: #444444;
+}
+
+.errorMessage {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
 }
