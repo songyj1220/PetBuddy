@@ -1,20 +1,14 @@
 .petCard {
   text-align: center;
-  width: 16rem;
-  height: 25rem;
-  margin-bottom: 5rem;
+  width: 13rem;
+  height: 23rem;
+  margin: 2rem 1rem;
   color: black;
   border-radius: 15px !important;
 }
 
-.Pet a {
-  text-decoration: none;
-}
-/* width: '16rem', height: '25rem', marginBottom:'5rem' */
-
-.petCard:hover {
-  border-width: 1px;
-  border-color: rgb(193, 162, 223);
+.card-img-top {
+  height: 254px;
 }
 
 .card-img,
@@ -25,8 +19,43 @@
 
 .titleText {
   color: blueviolet;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .descText {
   color: rgb(30, 9, 51);
+}
+
+@media only screen and (max-width: 710px) {
+  .petCard {
+    text-align: center;
+    width: 9rem;
+    height: 16rem;
+    margin: 1rem 0.5rem;
+    color: black;
+    border-radius: 15px !important;
+  }
+
+  .card-img-top {
+    height: 160px;
+  }
+
+  .descText {
+    font-size: 11px;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
+  }
+}
+
+.Pet a {
+  text-decoration: none;
+}
+/* width: '16rem', height: '25rem', marginBottom:'5rem' */
+
+.petCard:hover {
+  border-width: 1px;
+  border-color: rgb(193, 162, 223);
 }

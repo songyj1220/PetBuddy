@@ -15,14 +15,14 @@ const Pet = (props) =>
             state: props.pet
         }}>
            <Card className="petCard">
-               <div className="cardImage" style={{height: '20rem' }}>
+               <div className="cardImage">
                {
                    (props.pet.photos.length > 0) ?
-                   <Card.Img variant="top" src={props.pet.photos[0].large} alt="petImage" style={{ height: '254px'}}/>
+                   <Card.Img variant="top" src={props.pet.photos[0].large} alt="petImage"/>
 
                    :
 
-                   <Card.Img variant="top" src={LoadingImage} alt="petNoImage" style={{ height: '254px'}}/>
+                   <Card.Img variant="top" src={LoadingImage} alt="petNoImage"/>
 
                }
                </div>

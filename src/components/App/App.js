@@ -58,26 +58,23 @@ const App = () => {
       <Router>
       <div className='main'>
         <Navigation/>
-
+        <span className="slogan">Adoption is a loving Option ❤</span>
 
         <div className="search-container">
             <Row className="searchBar">
-              <Col>
-              <FormControl
-                placeholder="Enter Zipcode (ex: 57018)"
-                aria-label="Recipient's username with two button addons"
-                onChange={handleChange}
-              />
-              </Col>
-              <Col>
               <Link to="/petList">
-                {/* <ButtonGroup></ButtonGroup> */}
-              <Button variant="outline-secondary" onClick={() => {setType("dog"); search("dog");}}> Dogs </Button>
-              <Button variant="outline-secondary" onClick={() => {setType("cat"); search("cat");}}>Cats</Button>
-              <Button variant="outline-secondary" onClick={() => {setType("rabbit"); search("rabbit");}}>Rabbits</Button>
-              {/* <Button variant="outline-secondary">Other</Button> */}
+                <InputGroup>
+                  <FormControl
+                    placeholder="Enter Zipcode (ex: 57018)"
+                    aria-label="Recipient's username with two button addons"
+                    onChange={handleChange}
+                  />
+                  <Button className="firsButton" variant="outline-secondary" onClick={() => {setType("dog"); search("dog");}}> Dogs </Button>
+                  <Button variant="outline-secondary" onClick={() => {setType("cat"); search("cat");}}>Cats</Button>
+                  <Button variant="outline-secondary" onClick={() => {setType("rabbit"); search("rabbit");}}>Rabbits</Button>
+                  {/* <Button variant="outline-secondary">Other</Button> */}
+                </InputGroup>
               </Link>
-              </Col>
             </Row>
           </div>
 
