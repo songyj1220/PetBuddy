@@ -72,6 +72,7 @@ const App = () => {
                   <Button className="firsButton" variant="outline-secondary" onClick={() => {setType("dog"); search("dog");}}> Dogs </Button>
                   <Button variant="outline-secondary" onClick={() => {setType("cat"); search("cat");}}>Cats</Button>
                   <Button variant="outline-secondary" onClick={() => {setType("rabbit"); search("rabbit");}}>Rabbits</Button>
+                  <Button variant="outline-secondary" onClick={() => {setType("bird"); search("bird");}}>Birds</Button>
                   {/* <Button variant="outline-secondary">Other</Button> */}
                 </InputGroup>
               </Link>
